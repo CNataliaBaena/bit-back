@@ -1,0 +1,69 @@
+@base = http://localhost:3000/api
+
+
+### ver todos los productos
+GET {{base}}/productos
+
+
+### buscar uno por id
+GET {{base}}/productos/1
+
+
+### id que no existe
+GET {{base}}/productos/9999
+
+
+### agregar producto
+POST {{base}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "Monitor",
+  "precio": 350
+}
+
+
+### agregar sin nombre (debe fallar)
+POST {{base}}/productos
+Content-Type: application/json
+
+{
+  "precio": 100
+}
+
+
+### agregar con precio negativo (debe fallar)
+POST {{base}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "Tablet",
+  "precio": -50
+}
+
+
+### cambiar el precio
+PUT {{base}}/productos/1
+Content-Type: application/json
+
+{
+  "precio": 999
+}
+
+
+### cambiar nombre y precio
+PUT {{base}}/productos/2
+Content-Type: application/json
+
+{
+  "nombre": "Mouse inalambrico",
+  "precio": 40
+}
+
+
+### borrar un producto
+DELETE {{base}}/productos/3
+
+
+### verificar que se borro
+GET {{base}}/productos
