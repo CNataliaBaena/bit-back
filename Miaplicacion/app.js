@@ -24,9 +24,8 @@ app.post('/proyectos', (req, res) => {
     description,
     technology,
     status, // En desarrollo | Finalizado | Pausado
-    client,
-    createdAt: new Date()
-  }
+    client
+  };
 
   projects.push(newProject)
   res.status(201).json(newProject)
@@ -70,9 +69,8 @@ app.put('/proyectos/:id', (req, res) => {
     description,
     technology,
     status,
-    client,
-    updatedAt: new Date()
-  }
+    client
+  };
 
   projects[index] = updatedProject
   res.status(200).json(updatedProject)
@@ -92,5 +90,5 @@ app.delete('/proyectos/:id', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(Servidor OK en puerto ${port})
+  console.log(`Servidor OK en el puerto: ${port}`)
 })
